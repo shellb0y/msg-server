@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+
+
+
+
+
 # import win32com.client
 #
 # conn = win32com.client.Dispatch(r'ADODB.Connection')
@@ -11,23 +17,23 @@
 # rs.MoveFirst()
 # for x in range(rs.RecordCount):
 #     if rs.EOF:
-#         print "End of records"
 #         break
 #     else:
 #         print rs.Fields.Item(0).Value, rs.Fields.Item(1).Value, rs.Fields.Item(2).Value
 #         rs.MoveNext()
 # rs.Close()
 # conn.Close()
-import pypyodbc
-if __name__=="__main__":
-    str = 'Driver={Microsoft Access Driver (*.mdb,*.accdb)};DBQ=E:\\PycharmProjects\\MessageServer\\MMSCRM.mdb;'
-    conn = pypyodbc.win_connect_mdb(str)
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM phrase")
-    for row in cur.fetchall():
-        for field in row:
-            print field,
-        print ''
-    conn.commit()
-    cur.close()
-    conn.close()
+
+# import pypyodbc
+# if __name__=="__main__":
+#     str = 'Driver={Microsoft Access Driver (*.mdb,*.accdb)};DBQ=E:\\PycharmProjects\\msg-server\\MMSCRM.mdb;'
+#     conn = pypyodbc.win_connect_mdb(str)
+#     cur = conn.cursor()
+#     cur.execute("SELECT * FROM phrase")
+#     for row in cur.fetchall():
+#         for field in row:
+#             print field,
+#         print ''
+#     conn.commit()
+#     cur.close()
+#     conn.close()
