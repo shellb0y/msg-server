@@ -36,7 +36,7 @@ while 1:
                 break
         # print c, coms_status[c]['phonum'], service.get_sms(c)
         index = 0
-
+    time.sleep(3)
 # newkuka_api.close()
 
 

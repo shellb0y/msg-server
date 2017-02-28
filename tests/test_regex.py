@@ -7,3 +7,6 @@ match = pattern.match(msg)
 
 if match:
     print match.group(1)
+
+import service
+service.r.delete('server:1')
