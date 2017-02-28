@@ -1,12 +1,19 @@
 # -*- coding: utf-8 -*-
 import newkuka_api
 import json
+import redis
 
+pool = redis.ConnectionPool(host='120.26.213.143', port=6378, db=1,password='melodicdeath')
+r = redis.Redis(connection_pool=pool)
 
 # +SMS:402,{"port":69,"time":"2017-02-23 11:33:28","number":"10086","content":"尊敬的15983741984客户，至02月23日11时，您的账户余额为2.90元。欠费停机将影响您的通信畅通，建议您及时充值。话费查询请拨1008611。您可通过提高网龄和消费、减少停机次数、补充认证资料来获得信用星级。【四川移动掌上营业厅】便捷充话费，随时随地办业务，首次使用即送200M流量，还有50M流量红包天天抢，下载点击： http://dx.10086.cn/schfcd 中国移动"}
 def get_sms(com):
     data = newkuka_api.get_sms(com)
-    return json.loads('{' + data.split(',{')[1])
+    if data != '+SMS:0,NONE':
+        print data
+        return json.loads('{' + data.split(',{')[1])
+    else:
+        return None
 
 
 # AP$PORTS=8,"67,69,73,77,80,81,82,83"
